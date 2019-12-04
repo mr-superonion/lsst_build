@@ -183,7 +183,7 @@ class Builder:
             setup --vro=_build.tags -r .
             set -x
 
-            find tests/ -type f -exec sed -i 's/google.com/www.baidu.com/g' {} +
+            [ -d "tests" ] && find tests/ -type f -exec sed -i 's/google.com/www.baidu.com/g' {} +
             
             # build
             eupspkg PRODUCT=%(product)s VERSION=%(version)s FLAVOR=generic config
